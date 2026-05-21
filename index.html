@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFlow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>FocusFlow</h1>
+        <p class="subtitle">
+            Stay focused. Complete your goals.
+        </p>
+
+        <div class="task-input">
+
+            <input type="text" id="taskInput" placeholder="Enter your task">
+
+            <input type="time" id="taskTime">
+
+            <button onclick="addTask()">Add Task</button>
+
+        </div>
+
+        <div class="stats">
+
+            <h3>Daily Progress</h3>
+
+            <p id="progressText">0% Completed</p>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+        </div>
+
+        <ul id="taskList"></ul>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
