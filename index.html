@@ -1,43 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FocusFlow</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>FocusFlow V2</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
 </head>
+
 <body>
 
     <div class="container">
 
-        <h1>FocusFlow</h1>
-        <p class="subtitle">
-            Stay focused. Complete your goals.
-        </p>
+        <!-- HEADER -->
 
-        <div class="task-input">
+        <div class="header">
 
-            <input type="text" id="taskInput" placeholder="Enter your task">
+            <div>
+                <h1>FocusFlow</h1>
 
-            <input type="time" id="taskTime">
+                <p class="subtitle">
+                    Productivity & Focus System
+                </p>
 
-            <button onclick="addTask()">Add Task</button>
+                <p id="currentDate"></p>
+            </div>
+
+            <button
+                id="focusModeBtn"
+                class="focus-btn"
+            >
+                Enter Focus Mode
+            </button>
 
         </div>
 
-        <div class="stats">
+        <!-- TASK INPUT -->
 
-            <h3>Daily Progress</h3>
+        <div class="task-input">
 
-            <p id="progressText">0% Completed</p>
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter your task"
+            />
 
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
+            <input
+                type="text"
+                id="taskTime"
+                placeholder="e.g 9AM - 11AM"
+            />
+
+            <select id="taskPriority">
+
+                <option value="High">
+                    High Priority
+                </option>
+
+                <option value="Medium">
+                    Medium Priority
+                </option>
+
+                <option value="Low">
+                    Low Priority
+                </option>
+
+            </select>
+
+            <button onclick="addTask()">
+                Add Task
+            </button>
+
+        </div>
+
+        <!-- DASHBOARD -->
+
+        <div class="dashboard">
+
+            <div class="card">
+
+                <h2 id="totalTasks">0</h2>
+
+                <p>Total Tasks</p>
+
+            </div>
+
+            <div class="card">
+
+                <h2 id="completedTasks">0</h2>
+
+                <p>Completed</p>
+
+            </div>
+
+            <div class="card">
+
+                <h2 id="productivityScore">0%</h2>
+
+                <p>Productivity</p>
+
+            </div>
+
+            <div class="card">
+
+                <h2 id="streakCount">0🔥</h2>
+
+                <p>Focus Streak</p>
+
             </div>
 
         </div>
 
-        <ul id="taskList"></ul>
+        <!-- PROGRESS -->
+
+        <div class="progress-section">
+
+            <div class="progress-top">
+
+                <h3>Daily Progress</h3>
+
+                <p id="progressText">
+                    0% Completed
+                </p>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill"
+                ></div>
+
+            </div>
+
+            <p id="motivationMessage">
+                Let's focus and complete tasks!
+            </p>
+
+        </div>
+
+        <!-- AI INSIGHTS -->
+
+        <div class="ai-section">
+
+            <h2>AI Productivity Insights</h2>
+
+            <div id="aiInsight">
+                Your productivity insights will appear here.
+            </div>
+
+        </div>
+
+        <!-- POMODORO TIMER -->
+
+        <div class="pomodoro-section">
+
+            <h2>Pomodoro Timer</h2>
+
+            <div id="timer">25:00</div>
+
+            <div class="timer-buttons">
+
+                <button onclick="startTimer()">
+                    Start
+                </button>
+
+                <button onclick="pauseTimer()">
+                    Pause
+                </button>
+
+                <button onclick="resetTimer()">
+                    Reset
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- TASKS -->
+
+        <div class="task-section">
+
+            <h2>Your Tasks</h2>
+
+            <ul id="taskList"></ul>
+
+        </div>
+
+        <!-- ANALYTICS -->
+
+        <div class="analytics-section">
+
+            <h2>Weekly Analytics</h2>
+
+            <canvas id="analyticsChart"></canvas>
+
+        </div>
 
     </div>
 
